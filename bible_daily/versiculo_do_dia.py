@@ -2,13 +2,25 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import os
 from datetime import datetime
-arquivos = os.listdir()
+arquivos = os.listdir("bible_daily")
 
 today = datetime.now().strftime("%d-%m-%Y")
 
+
+found=False
 for arquivo in arquivos:
+    if today not in arquivo and arquivo.endswith("_versiculo.txt"):
+        parent_dir = os.path.abspath("bible_daily")
+        abs_filepath = os.path.join(parent_dir, arquivo)
+        os.remove(abs_filepath)
+         
+
     if today in arquivo:
-        exit()
+        found=True
+
+if found:
+    exit()
+
 
 
 URL="https://www.bibliaonline.com.br/"
@@ -47,5 +59,5 @@ for line in range(len(lines)):
 
 full_verse = f"{title}\n{day_of_week}, {day_of_month} de {month}\n{verse}"
 
-with open(f"{today}_versiculo.txt", "w") as file:
+with open(f"bible_daily/{today}_versiculo.txt", "w") as file:
     file.write(full_verse)

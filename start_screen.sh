@@ -30,7 +30,7 @@ else
   NETWORK_STATUS="Not connected to WiFi"
 fi
 
-BIBLE_VERSE=$(python3 ~/bible_daily/versiculo_do_dia.py && cat ~/bible_daily/*versiculo.txt)
+BIBLE_VERSE=$(python3 ~/bible_daily/versiculo_do_dia.py && cat ~/bible_daily/*_versiculo.txt)
 
 clear
 
