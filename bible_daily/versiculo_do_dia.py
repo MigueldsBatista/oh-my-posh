@@ -23,7 +23,7 @@ if found:
 
 
 
-URL="https://www.bibliaonline.com.br/"
+URL="https://www.bibliaonline.com.br/nvi"
 
 options = webdriver.ChromeOptions()
 
